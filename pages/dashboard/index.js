@@ -13,12 +13,12 @@ const apiUrl = "https://notevault-wzmt.onrender.com";
 const token = localStorage.getItem("jwt");
 
 if (!token) {
-  location.href = "./pages/signInsignUp/authenticate.html";
+  location.href = "../signInsignUp/authenticate.html";
 }
 
 logout.addEventListener("click", () => {
   localStorage.removeItem("jwt");
-  location.href = "/";
+  location.href = "../../index.html";
 });
 
 let cardData = [];
