@@ -50,6 +50,8 @@ window.addEventListener("load", () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
+
         cardData = data.data;
         createNotes(data.data);
       })

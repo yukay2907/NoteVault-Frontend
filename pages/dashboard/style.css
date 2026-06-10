@@ -71,21 +71,29 @@ nav {
 }
 
 .card {
-  height: 250px;
-  width: 200px;
+  min-height: 250px;
+  width: 280px;
+
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.4);
   border: 1px solid white;
+
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  padding: 10px;
-}
 
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+}
 .card-header {
   width: 100%;
+
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+
+  gap: 10px;
 }
 
 .card-heading {
@@ -104,12 +112,22 @@ nav {
 }
 
 .card-content {
-  font-size: 14px;
   margin-top: 10px;
-  width: 100%;
-  height: 180px;
+
+  flex: 1;
+
   border: 1px solid white;
   border-radius: 15px;
-  word-wrap: break-word;
-  overflow: auto;
+
+  padding: 10px;
+
+  word-break: break-word;
+
+  overflow: hidden;
+
+  display: -webkit-box;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+
+  line-height: 1.6;
 }
