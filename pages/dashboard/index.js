@@ -13,7 +13,7 @@ const apiUrl = "https://notevault-wzmt.onrender.com";
 const token = localStorage.getItem("jwt");
 
 if (!token) {
-  location.href = "../signInsignUp/authenticate.html";
+  location.href = "./pages/signInsignUp/authenticate.html";
 }
 
 logout.addEventListener("click", () => {
