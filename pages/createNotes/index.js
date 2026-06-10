@@ -4,28 +4,37 @@ const apiUrl = "https://notevault-wzmt.onrender.com";
 
 const token = localStorage.getItem("jwt");
 
-createNoteButton.addEventListener("click", (event) => {
-  const content = document.querySelector(".create-note-input").value;
-  const heading = document.querySelector(".create-note-heading").value;
+createNoteButton.addEventListener("click", () => {
+  // console.log("Button clicked");
+  const content = document.querySelector(".create-note-input").value.trim();
+  const heading = document.querySelector(".create-note-heading").value.trim();
 
-  if (token) {
-    fetch(`${apiUrl}/note/add`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: token,
-      },
-      body: JSON.stringify({ content, heading }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.message) {
-          location.href = "/pages/dashboard/dashboard.html";
-        }
-      })
-      .catch((err) => {
-        alert("Error Creating Note");
-        console.log(err);
-      });
+  if (!token) {
+    alert("Please sign in first.");
+    return;
   }
+
+  if (!heading || !content) {
+    alert("Heading and content cannot be empty.");
+    return;
+  }
+
+  fetch(`${apiUrl}/note/add`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: token,
+    },
+    body: JSON.stringify({ heading, content }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.message) {
+        location.href = "/pages/dashboard/dashboard.html";
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      alert("Error creating note.");
+    });
 });

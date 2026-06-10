@@ -26,10 +26,13 @@ signInForm.addEventListener("submit", (event) => {
   })
     .then((res) => res.json())
     .then((data) => {
+      console.log("LOGIN RESPONSE:", data);
+
       const { token } = data;
 
       if (token) {
         localStorage.setItem("jwt", token);
+        localStorage.setItem("name", data.name);
         location.href = "/pages/dashboard/dashboard.html";
       } else {
         alert("SignIn Again");

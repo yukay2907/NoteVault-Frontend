@@ -67,8 +67,7 @@ main > div {
 }
 
 .heading {
-  font-size: 50px;
-  letter-spacing: 2px;
+  font-size: clamp(3rem, 6vw, 5rem);
 }
 
 .sub-heading {
@@ -116,4 +115,73 @@ main > div {
   position: absolute;
   right: -60px;
   bottom: -100px;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
+
+  nav {
+    padding: 20px;
+  }
+
+  .sign-in-sign-up {
+    width: 100%;
+    text-align: center;
+  }
+
+  main {
+    height: auto;
+    min-height: 90vh;
+
+    flex-direction: column;
+    text-align: center;
+
+    padding: 30px 20px;
+    gap: 40px;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+  }
+
+  .left-section {
+    transform: none;
+  }
+
+  .right-section {
+    transform: none;
+    justify-content: center;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+
+  .sub-heading {
+    font-size: 1rem;
+    margin-top: 15px;
+    letter-spacing: 1px;
+  }
+
+  .homepage-illustration {
+    width: 80%;
+    max-width: 320px;
+  }
+
+  .circle1 {
+    width: 300px;
+    height: 300px;
+    left: -150px;
+    top: -100px;
+  }
+
+  .circle2 {
+    width: 220px;
+    height: 220px;
+    right: -100px;
+    bottom: -80px;
+  }
 }

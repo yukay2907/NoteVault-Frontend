@@ -10,7 +10,7 @@ body {
   min-height: 100vh;
   width: 100%;
   background: linear-gradient(45deg, #ff9ce3, #4ab3ff);
-  overflow: hidden;
+  overflow-x: hidden;
   opacity: 0;
   transition: opacity 1s ease;
   display: flex;
@@ -56,6 +56,7 @@ body {
 
 .form-container {
   width: 800px;
+  gap: 30px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -65,6 +66,7 @@ body {
 .signup-form {
   background: rgba(255, 255, 255, 0.4);
   padding: 20px;
+  width: 350px;
   border-radius: 15px;
   border: 1px solid white;
   backdrop-filter: blur(6px);
@@ -75,8 +77,7 @@ body {
 }
 
 .form-heading {
-  /* font-weight: bold; */
-  font-size: 28px;
+  font-size: clamp(1.5rem, 3vw, 1.75rem);
 }
 
 form > * {
@@ -91,13 +92,20 @@ form > *:last-child {
 }
 
 form > input {
+  width: 100%;
+
+  padding: 12px;
+
   border: none;
-  height: 10%;
-  width: 250px;
-  border-radius: 15px;
-  color: black;
-  padding: 10px;
-  text-align: center;
+  border-radius: 12px;
+
+  color: #111;
+
+  text-align: left;
+}
+
+form > input::placeholder {
+  color: #666;
 }
 
 form > input:focus {
@@ -105,18 +113,72 @@ form > input:focus {
 }
 
 form > button {
-  background: transparent;
-  padding: 10px;
-  border-radius: 15px;
+  width: 100%;
+
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
+
+  padding: 12px;
+
+  border-radius: 12px;
   border: 1px solid white;
+
   cursor: pointer;
-  transition: all 0.5s ease;
+
+  transition: all 0.25s ease;
 }
 
 form > button:hover {
-  transform: scale(1.1);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 form > button:active {
   transform: scale(1);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  .form-container {
+    width: 100%;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .signin-form,
+  .signup-form {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .form-heading {
+    font-size: 24px;
+  }
+
+  form > input {
+    width: 100%;
+  }
+
+  form > button {
+    width: 100%;
+  }
+
+  .circle1 {
+    width: 350px;
+    height: 350px;
+    left: -180px;
+    top: -100px;
+  }
+
+  .circle2 {
+    width: 250px;
+    height: 250px;
+    right: -100px;
+    bottom: -50px;
+  }
 }

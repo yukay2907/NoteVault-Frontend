@@ -3,131 +3,231 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  color: white;
-}
-.poppins-regular {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.poppins-bold {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-style: normal;
 }
 
 body {
   min-height: 100vh;
   width: 100%;
-  background: linear-gradient(45deg, #ff9ce3, #4ab3f4);
-  overflow: hidden;
-  /* opacity: 0; */
-  transition: opacity 1s ease;
+  background: linear-gradient(135deg, #d9a7ff, #73b9ff);
+  color: white;
+
+  opacity: 0;
+  transition: opacity 0.8s ease;
 }
 
 .visible {
   opacity: 1;
 }
 
+/* NAVBAR */
+
 nav {
-  height: 10vh;
   width: 100%;
+  padding: 40px 80px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 80px;
+}
+
+.left-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.9;
 }
 
 .welcome {
-  font-size: 40px;
-  font-weight: bold;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 8px;
 }
 
 .nav-controls {
   display: flex;
+  gap: 16px;
 }
 
-.nav-options {
-  background: rgba(255, 255, 255, 0.4);
-  padding: 10px;
-  border-radius: 15px;
-  border: 1px solid white;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+.new-note,
+.logout {
+  padding: 12px 24px;
+  border-radius: 14px;
+
   cursor: pointer;
-  margin-left: 15px;
+
+  transition: all 0.25s ease;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
+
+.new-note {
+  background: white;
+  color: #111;
+  font-weight: 600;
+}
+
+.logout {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.new-note:hover,
+.logout:hover {
+  transform: translateY(-2px);
+}
+
+/* MAIN */
+
+main {
+  width: 100%;
+  padding: 0 80px 60px;
+}
+
+.section-heading {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* CARD GRID */
 
 .card-container {
-  height: 90vh;
-  width: 100%;
-  padding: 0 80px;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+  gap: 24px;
 }
+
+/* CARD */
 
 .card {
-  min-height: 250px;
-  width: 280px;
+  min-height: 260px;
 
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.4);
-  border: 1px solid white;
+  padding: 20px;
 
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  border-radius: 24px;
 
-  padding: 15px;
+  background: rgba(255, 255, 255, 0.18);
 
-  display: flex;
-  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition: all 0.25s ease;
 }
-.card-header {
-  width: 100%;
 
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 
-  gap: 10px;
+  margin-bottom: 15px;
 }
 
 .card-heading {
-  font-weight: bold;
-  font-size: 20px;
+  font-size: 1.25rem;
+  font-weight: 700;
+
+  max-width: 75%;
+
+  word-break: break-word;
+}
+
+/* ACTIONS */
+
+.card-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
 .edit-note {
-  height: 40px;
+  width: 22px;
+  height: 22px;
+
   cursor: pointer;
 }
 
-.edit-note > img {
-  height: 100%;
+.edit-note img {
   width: 100%;
+  height: 100%;
 }
 
+.delete-note {
+  cursor: pointer;
+  font-size: 1.2rem;
+
+  transition: transform 0.2s ease;
+}
+
+.delete-note:hover {
+  transform: scale(1.15);
+}
+
+/* CONTENT */
+
 .card-content {
-  margin-top: 10px;
-
-  flex: 1;
-
-  border: 1px solid white;
-  border-radius: 15px;
-
-  padding: 10px;
+  font-size: 0.95rem;
+  line-height: 1.7;
 
   word-break: break-word;
 
   overflow: hidden;
 
   display: -webkit-box;
-  line-clamp: 5;
+  line-clamp: 6;
   -webkit-box-orient: vertical;
 
-  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  nav {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .welcome {
+    font-size: 2.5rem;
+  }
+
+  .nav-controls {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .new-note,
+  .logout {
+    width: 100%;
+    text-align: center;
+  }
+
+  main {
+    padding: 0 20px 40px;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+  }
 }

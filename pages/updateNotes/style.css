@@ -21,64 +21,68 @@ body {
   min-height: 100vh;
   width: 100%;
   background: linear-gradient(45deg, #ff9ce3, #4ab3f4);
-  overflow: hidden;
-  /* opacity: 0; */
+  overflow-x: hidden;
   transition: opacity 1s ease;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.visible {
-  opacity: 1;
-}
-
 .create-notes-container {
-  height: 350px;
-  width: 300px;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.4);
-  border: 1px solid white;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  padding: 20px;
+  width: 500px;
+
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 24px;
+
+  padding: 30px;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  gap: 20px;
 }
 
 .heading {
-  font-weight: bold;
-  font-size: 30px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 .create-note-input {
-  width: 80%;
-  height: 180px;
-  padding: 20px;
+  width: 100%;
+
+  min-height: 250px;
+
+  padding: 18px;
+
   border: none;
-  border-radius: 24px;
-  outline: none;
+  border-radius: 18px;
+
+  color: #111;
+
   resize: none;
-  color: black;
 
   font-size: 1rem;
   line-height: 1.6;
 
-  background: rgba(255, 255, 255, 0.85);
-
-  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .create-note-heading {
+  width: 100%;
+
+  padding: 14px 18px;
+
   border: none;
-  height: 10%;
-  width: 90%;
-  border-radius: 15px;
-  color: black;
-  padding: 10px;
-  text-align: center;
+  border-radius: 14px;
+
+  color: #111;
+
+  font-size: 1rem;
 }
 
 .create-note-input:focus,
@@ -86,10 +90,52 @@ body {
   outline: none;
 }
 
+.create-note-heading::placeholder,
+.create-note-input::placeholder {
+  color: #666;
+}
+
 .create-note-button {
-  background: transparent;
-  padding: 10px;
-  border-radius: 15px;
-  border: 1px solid white;
+  width: 100%;
+
+  padding: 14px;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  text-align: center;
+
   cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.create-note-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.create-note-button:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  .create-notes-container {
+    width: 100%;
+    padding: 24px;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .create-note-input {
+    min-height: 180px;
+  }
 }
