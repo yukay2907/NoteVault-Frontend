@@ -24,7 +24,7 @@ logout.addEventListener("click", () => {
 let cardData = [];
 
 createNoteButton.addEventListener("click", () => {
-  location.href = "/pages/createNotes/createNotes.html";
+  location.href = "../createNotes/createNotes.html";
 });
 
 const createNotes = (array) => {

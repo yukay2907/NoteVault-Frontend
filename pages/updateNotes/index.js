@@ -51,7 +51,7 @@ updateNoteButton.addEventListener("click", (event) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.message) {
-          location.href = "/pages/dashboard/dashboard.html";
+          location.href = "../dashboard/dashboard.html";
         }
       })
       .catch((err) => {
