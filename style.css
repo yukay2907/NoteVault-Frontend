@@ -17,6 +17,12 @@
   font-style: normal;
 }
 
+#tsparticles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
 body {
   min-height: 100vh;
   width: 100%;
@@ -37,6 +43,9 @@ nav {
   justify-content: flex-end;
   align-items: center;
   padding: 0 80px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 .sign-in-sign-up {
@@ -56,6 +65,8 @@ main {
   align-items: center;
   padding: 0 80px;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
 }
 
 main > div {
