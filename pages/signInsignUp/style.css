@@ -3,182 +3,295 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  color: white;
 }
 
 body {
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
+
   background: linear-gradient(45deg, #ff9ce3, #4ab3ff);
-  overflow-x: hidden;
+
+  overflow: hidden;
+
   opacity: 0;
   transition: opacity 1s ease;
+
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+
+  position: relative;
 }
 
 .visible {
   opacity: 1;
 }
 
+/* HERO */
+
+.hero-section {
+  text-align: center;
+
+  margin-bottom: 25px;
+
+  color: white;
+}
+
+.hero-section h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+.hero-section p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  font-size: 0.95rem;
+
+  opacity: 0.75;
+}
+
+.hero-divider {
+  width: 120px;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  margin: 12px auto 30px;
+}
+
+/* BACKGROUND CIRCLES */
+
 .circle1,
 .circle2 {
-  z-index: -5;
   position: absolute;
+  z-index: -5;
 }
 
 .circle1 {
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
+
   border-radius: 50%;
 
-  background: linear-gradient(180deg, #97ff57 0%, #0d99ff 99.99%, #0094ff 100%);
-  filter: blur(10px);
-  transform: rotate(18deg);
+  background: linear-gradient(180deg, #97ff57 0%, #0d99ff 100%);
+
+  filter: blur(12px);
+
   left: -120px;
-  top: -100px;
+  top: -120px;
+
+  opacity: 0.2;
 }
+
 .circle2 {
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
+
   border-radius: 50%;
 
+  background: linear-gradient(180deg, #ff57d0 0%, #0d99ff 100%);
+
   filter: blur(10px);
-  transform: rotate(18deg);
-  right: -50px;
+
+  right: -80px;
   bottom: -80px;
 
-  background: linear-gradient(180deg, #ff57d0 0%, #0d99ff 99.99%, #0094ff 100%);
-  filter: blur(5px);
-  transform: rotate(18deg);
+  opacity: 0.2;
 }
 
+/* FORM CONTAINER */
+
 .form-container {
-  width: 800px;
-  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
+
+  gap: 28px;
 }
+
+/* FORMS */
 
 .signin-form,
 .signup-form {
-  background: rgba(255, 255, 255, 0.4);
-  padding: 20px;
-  width: 350px;
-  border-radius: 15px;
-  border: 1px solid white;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 380px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  border-radius: 24px;
+
+  padding: 18px;
+  transition: all 0.3s ease;
 }
+
+.signin-form:hover,
+.signup-form:hover {
+  transform: translateY(-3px);
+}
+
+/* HEADING */
 
 .form-heading {
-  font-size: clamp(1.5rem, 3vw, 1.75rem);
+  text-align: center;
+
+  color: white;
+
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  margin-bottom: 12px;
 }
 
-form > * {
-  margin: 10px 0;
-}
-form > *:first-child {
-  margin-top: 0;
+/* INPUTS */
+
+form input {
+  width: 100%;
+
+  margin-bottom: 12px;
+
+  padding: 10px 16px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  color: #111827;
+
+  font-size: 1rem;
 }
 
-form > *:last-child {
-  margin-bottom: 0;
+form input::placeholder {
+  color: #666;
 }
 
-form > input {
+form input:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* BUTTONS */
+
+form button {
   width: 100%;
 
   padding: 12px;
 
   border: none;
-  border-radius: 12px;
 
-  color: #111;
+  border-radius: 14px;
 
-  text-align: left;
-}
+  background: white;
 
-form > input::placeholder {
-  color: #666;
-}
+  color: #111827;
 
-form > input:focus {
-  outline: none;
-}
-
-form > button {
-  width: 100%;
-
-  color: white;
-  background: rgba(255, 255, 255, 0.15);
-
-  padding: 12px;
-
-  border-radius: 12px;
-  border: 1px solid white;
+  font-size: 1rem;
+  font-weight: 600;
 
   cursor: pointer;
 
   transition: all 0.25s ease;
 }
 
-form > button:hover {
+form button:hover {
   transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.25);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-form > button:active {
-  transform: scale(1);
+form button:active {
+  transform: scale(0.98);
 }
 
-@media (max-width: 768px) {
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
   body {
-    padding: 20px;
+    min-height: 100vh;
+    height: auto;
+
     overflow-y: auto;
+    overflow-x: hidden;
+
+    justify-content: flex-start;
+
+    padding: 30px 15px;
+  }
+
+  .hero-section {
+    margin-bottom: 20px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-section p {
+    font-size: 0.9rem;
+  }
+
+  .hero-divider {
+    width: 80px;
+    margin: 10px auto 20px;
   }
 
   .form-container {
-    width: 100%;
     flex-direction: column;
-    gap: 30px;
     align-items: center;
+    gap: 20px;
   }
 
   .signin-form,
   .signup-form {
     width: 100%;
-    max-width: 400px;
+    max-width: 360px;
+    padding: 18px;
   }
 
   .form-heading {
-    font-size: 24px;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
   }
 
-  form > input {
-    width: 100%;
+  form input {
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
   }
 
-  form > button {
-    width: 100%;
+  form button {
+    padding: 12px;
+    font-size: 0.95rem;
   }
 
   .circle1 {
-    width: 350px;
-    height: 350px;
-    left: -180px;
-    top: -100px;
+    width: 220px;
+    height: 220px;
+
+    left: -100px;
+    top: -80px;
+
+    opacity: 0.12;
   }
 
   .circle2 {
-    width: 250px;
-    height: 250px;
-    right: -100px;
-    bottom: -50px;
+    width: 180px;
+    height: 180px;
+
+    right: -80px;
+    bottom: -60px;
+
+    opacity: 0.12;
   }
 }

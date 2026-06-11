@@ -23,11 +23,15 @@ body {
 
 nav {
   width: 100%;
-  padding: 40px 80px;
+  height: 90px;
+
+  padding: 0 1rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .left-nav {
@@ -37,15 +41,15 @@ nav {
 
 .logo {
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 700;
   opacity: 0.9;
 }
 
 .welcome {
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  line-height: 1.1;
-  margin-top: 8px;
+  line-height: 1.2;
+  margin-top: 6px;
 }
 
 .nav-controls {
@@ -55,15 +59,13 @@ nav {
 
 .new-note,
 .logout {
-  padding: 12px 24px;
-  border-radius: 14px;
+  min-width: 140px;
 
-  cursor: pointer;
+  padding: 14px 24px;
 
-  transition: all 0.25s ease;
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .new-note {
@@ -79,6 +81,7 @@ nav {
 .new-note:hover,
 .logout:hover {
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 /* MAIN */
@@ -89,8 +92,13 @@ main {
 }
 
 .section-heading {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 600;
+
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
   margin-bottom: 30px;
 }
 
@@ -98,7 +106,7 @@ main {
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
 
   gap: 24px;
 }
@@ -106,7 +114,7 @@ main {
 /* CARD */
 
 .card {
-  min-height: 260px;
+  min-height: 180px;
 
   padding: 20px;
 
@@ -123,8 +131,11 @@ main {
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+
+  border-color: rgba(255, 255, 255, 0.65);
+
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
 }
 
 .card-header {
@@ -139,9 +150,12 @@ main {
   font-size: 1.25rem;
   font-weight: 700;
 
+  color: white;
+
   max-width: 75%;
 
   word-break: break-word;
+  opacity: 1;
 }
 
 /* ACTIONS */
@@ -183,13 +197,15 @@ main {
 
   word-break: break-word;
 
+  color: rgba(255, 255, 255, 0.85);
+
   overflow: hidden;
 
   display: -webkit-box;
   line-clamp: 6;
   -webkit-box-orient: vertical;
 
-  opacity: 0.95;
+  opacity: 0.85;
 }
 
 .card {
